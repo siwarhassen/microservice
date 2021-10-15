@@ -1,0 +1,4 @@
+2021-10-15 13:13:54 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Erreur de syntaxe dans l'instruction SQL "SELECT * FROM POST POST POST[*]"
+Syntax error in SQL statement "SELECT * FROM POST POST POST[*]"; SQL statement:
+SELECT * FROM POST POST POST [42000-200]
