@@ -29,8 +29,7 @@ public class Panier implements Serializable{
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
-	@Temporal(TemporalType.DATE)
-	private Date date;
+	
 	
 	@Transient
 	private Double totalPrice ; 
@@ -51,19 +50,12 @@ public class Panier implements Serializable{
 		this.id = id;
 	}
 
-	public Date getDate() {
-		return date;
-	}
-
-	public void setDate(Date date) {
-		this.date = date;
-	}
 
 	public Double getTotalPrice() {
 		Double sum=0.0;
 		for(PanierItem item:this.items )
 		{
-			sum=sum +item.getProduit();
+			sum=sum +item.getProduit()*item.getQuantity();
 		}
 		return sum;
 	}
@@ -101,36 +93,36 @@ public class Panier implements Serializable{
 		super();
 	}
 
-	public Panier(Date date, Double totalPrice, Set<PanierItem> items, int client) {
+	public Panier( Double totalPrice, Set<PanierItem> items, int client) {
 		super();
-		this.date = date;
+	
 		this.totalPrice = totalPrice;
 		this.items = items;
 		this.client = client;
 	}
 
-	public Panier(Long id, Date date, Double totalPrice, Set<PanierItem> items, int client) {
+	public Panier(Long id, Double totalPrice, Set<PanierItem> items, int client) {
 		super();
 		this.id = id;
-		this.date = date;
+		
 		this.totalPrice = totalPrice;
 		this.items = items;
 		this.client = client;
 	}
 
-	public Panier(Long id, Date date, Double totalPrice, Set<PanierItem> items, int client, int itemsNumber) {
+	public Panier(Long id,Double totalPrice, Set<PanierItem> items, int client, int itemsNumber) {
 		super();
 		this.id = id;
-		this.date = date;
+		
 		this.totalPrice = totalPrice;
 		this.items = items;
 		this.client = client;
 		this.itemsNumber = itemsNumber;
 	}
 
-	public Panier(Date date, Double totalPrice, Set<PanierItem> items, int client, int itemsNumber) {
+	public Panier( Double totalPrice, Set<PanierItem> items, int client, int itemsNumber) {
 		super();
-		this.date = date;
+		
 		this.totalPrice = totalPrice;
 		this.items = items;
 		this.client = client;

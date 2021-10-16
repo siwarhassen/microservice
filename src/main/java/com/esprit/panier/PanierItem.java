@@ -1,13 +1,21 @@
 package com.esprit.panier;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
+
 @Entity
 public class PanierItem  implements Serializable{
 
@@ -21,10 +29,18 @@ public class PanierItem  implements Serializable{
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
+	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private Date date;
+	
+	
 	private int quantity;
 	
 	//@ManyToOne(fetch=FetchType.EAGER)
 	private int produit;
+	
+
+	
 	
 	
 	public PanierItem(int quantity, int produit) {
@@ -95,6 +111,40 @@ public class PanierItem  implements Serializable{
 		super();
 	}
 
+
+
+	public Date getDate() {
+		return date;
+	}
+
+
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
+
+
+
+	public PanierItem(Long id, Date date, int quantity, int produit) {
+		super();
+		this.id = id;
+		this.date = date;
+		this.quantity = quantity;
+		this.produit = produit;
+	}
+
+
+
+	public PanierItem(Date date, int quantity, int produit) {
+		super();
+		this.date = date;
+		this.quantity = quantity;
+		this.produit = produit;
+	}
+
+
+
+	
 
 
 
