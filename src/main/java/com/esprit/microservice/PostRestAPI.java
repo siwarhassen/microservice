@@ -1,6 +1,7 @@
 package com.esprit.microservice;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
@@ -35,29 +37,50 @@ public class PostRestAPI {
 	
 	 @GetMapping("/retrieve-all-posts")
 	 @ResponseBody
-	 public List<Post> getUsers() {
+	 public List<Post> getPosts() {
 	 List<Post> list = postService.retrieveAllPosts();
 	 return list;
 	 }
 	 
-	 @PostMapping("/add-user")
+	 @GetMapping("/retrieve-my-posts/{user}")
+	 @ResponseBody
+	 public List<Post> getMyPosts(@PathVariable("user") int user) {
+	 List<Post> list = postService.retrieveMyPosts(user);
+	 return list;
+	 }
+	 
+	 @GetMapping("/retrieve-posts-title/{title}")
+	 @ResponseBody
+	 public List<Post> getPostsByTitle(@PathVariable("title") String title) {
+	 List<Post> list = postService.findPostsByTitle(title);
+	 return list;
+	 }
+	 
+	 @GetMapping("/retrieve-post/{id}")
+	 @ResponseBody
+	 public Post getPostsByTitle(@PathVariable("id") int id) {
+	 Post post = postService.retrievePost(id);
+	 return post;
+	 }
+	 
+	 @PostMapping("/add-post/{user}")
 	 @ResponseStatus(HttpStatus.CREATED)
-	 public ResponseEntity<Post>  addUser(@RequestBody Post p) {
-		 return new ResponseEntity<>( postService.addPost(p), HttpStatus.OK);
+	 public ResponseEntity<Post>  addPost(@RequestBody Post p, @PathVariable("user") int user) {
+		 return new ResponseEntity<>( postService.addPost(p,user), HttpStatus.OK);
 	
 	 }
 	 
-	 @PutMapping(value = "/{id}", produces= MediaType.APPLICATION_JSON_VALUE)
+	 @PutMapping(value = "/{id}/{user}", produces= MediaType.APPLICATION_JSON_VALUE)
 	 @ResponseStatus(HttpStatus.OK)
-	 public ResponseEntity<Post>  updateUser(@PathVariable("id") int id, @RequestBody Post p) {
-		 return new ResponseEntity<>( postService.updatePost(id,p), HttpStatus.OK);
+	 public ResponseEntity<Post>  updatePost(@PathVariable("id") int id,@PathVariable("user") int user, @RequestBody Post p) {
+		 return new ResponseEntity<>( postService.updatePost(id,user,p), HttpStatus.OK);
 	
 	 }
 	 
-	 @DeleteMapping(value = "/{id}", produces= MediaType.APPLICATION_JSON_VALUE)
+	 @DeleteMapping(value = "/{id}/{user}", produces= MediaType.APPLICATION_JSON_VALUE)
 	 @ResponseStatus(HttpStatus.OK)
-	 public String deletePost(@PathVariable("id") int id) {
-		  postService.deletePost(id);
+	 public String deletePost(@PathVariable("id") int id,@PathVariable("user") int user) {
+		  postService.deletePost(id,user);
 		  return "Post deleted with success";
 	}
 	 

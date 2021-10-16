@@ -29,7 +29,7 @@ public class ConseilApplication {
 			
 			Date today = new Date();
 			// save
-			postService.addPost(new Post("sabrine", "fliss",today));
+			//postService.addPost(new Post("sabrine", "fliss",today,14),14);
 			// fetch
 			postService.retrieveAllPosts().forEach(System.out::println);
 

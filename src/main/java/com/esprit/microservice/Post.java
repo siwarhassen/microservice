@@ -21,6 +21,8 @@ public class Post {
 	
 	@Temporal(TemporalType.DATE)
 	private Date created_at;
+	
+	private int user;
 
 	public int getId() {
 		return id;
@@ -58,6 +60,14 @@ public class Post {
 		this.created_at = created_at;
 	}
 
+	public int getUser() {
+		return user;
+	}
+
+	public void setUser(int user) {
+		this.user = user;
+	}
+
 	public Post() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -68,6 +78,14 @@ public class Post {
 		this.title = title;
 		this.content = content;
 		this.created_at = created_at;
+	}
+
+	public Post(String title, String content, Date created_at, int user) {
+		super();
+		this.title = title;
+		this.content = content;
+		this.created_at = created_at;
+		this.user = user;
 	}
 
 
