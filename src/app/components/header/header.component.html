@@ -1,0 +1,443 @@
+
+
+
+
+<div id="shopify-section-header" class="shopify-section"><div id="header" data-section-id="header" data-section-type="header-section">
+    <header class="site-header">
+      
+      <div class="nav-header"> 
+        <div class="page-width">
+           
+          <div class="header-block col-md-6 col-sm-6 col-xs-6 hidden-lg-down ">
+            <span class="offer-img">
+                  </span>
+           
+          </div>
+  
+          <div class="desktop-user-info  col-md-6 col-sm-6 col-xs-6 ">
+               
+              <div id="_desktop_user_info" class="user_info hidden-lg-down">
+                
+                  <div class="userinfo-title clearfix" data-toggle="popover" aria-expanded="false" data-href="#user-notification" >
+                    
+                    <span class="userinfo-toggle hidden-lg-down">
+  
+     <svg class="icon" viewBox="0 0 40 40"><use xlink:href="#user-desktop" x="20%" y="20%"></use></svg>
+                      <span class="userinfo-toggle hidden-lg-down">
+                         Account 
+                      </span>
+                    </span>
+                    <span class="userinfo-toggle hidden-lg-up">
+      <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">          
+              <symbol id="user-mobile" viewBox="0 0 480 480">
+                <path d="M187.497,152.427H73.974c-38.111,0-69.117,31.006-69.117,69.117v39.928h251.758v-39.928
+                   C256.614,183.433,225.608,152.427,187.497,152.427z M241.614,246.473H19.856v-24.928c0-29.84,24.277-54.117,54.117-54.117h113.523
+                   c29.84,0,54.117,24.277,54.117,54.117L241.614,246.473L241.614,246.473z"></path>
+                <path d="M130.735,145.326c40.066,0,72.663-32.597,72.663-72.663S170.802,0,130.735,0S58.072,32.596,58.072,72.663
+                   S90.669,145.326,130.735,145.326z M130.735,15c31.796,0,57.663,25.867,57.663,57.663s-25.867,57.663-57.663,57.663
+                   s-57.663-25.868-57.663-57.663S98.939,15,130.735,15z"></path>
+              </symbol> 
+          </svg>
+     <svg class="icon" viewBox="0 0 40 40"><use xlink:href="#user-mobile" x="22%" y="22%"></use></svg>
+  
+  
+  
+  </span>
+                    
+                  </div>
+                
+  
+                <div id="user-notification" class="toggle-dropdown">
+  <div class="customer login ishi-panel-container">
+    
+    <div id="ishi-login-panel" class="ishi-panel-data ishi-panel-data-default active">
+      <h2>
+      Login
+    </h2>
+    <form (submit)="login($event)"  method="post" action="https://paws-ishi.myshopify.com/account/login" id="customer_login" accept-charset="UTF-8" novalidate="novalidate"><input type="hidden" name="form_type" value="customer_login" /><input type="hidden" name="utf8" value="✓" /><div class="field">        
+          <input
+            type="email"
+          
+            id="CustomerEmail"
+            autocomplete="email"
+            autocorrect="off"
+            autocapitalize="off"
+            name="email" required="required"  [(ngModel)]="email"
+            placeholder="Email"
+          >
+          <label for="CustomerEmail">
+            Email
+          </label>
+        </div>
+        <div class="field">          
+            <input
+              type="password"
+              value=""
+            
+              id="CustomerPassword"
+              autocomplete="current-password"
+              name="password" required="required"   [(ngModel)]="password"
+              placeholder="Password"
+            >
+            <label for="CustomerPassword">
+              Password
+            </label>
+          </div>
+  
+           <p data-action="ishi-panel" aria-controls="#ishi-recover-panel" class="forgot">Forgot your password?</p><button class="btn">
+          Sign in
+        </button>
+  
+      <p data-action="ishi-panel" aria-controls="#ishi-register-panel"> Create account</p></form></div>
+    
+    <div id="ishi-recover-panel" class="ishi-panel-data ishi-panel-data-slide">
+      <h2>
+      Reset your password
+      </h2>
+      <p>
+        We will send you an email to reset your password
+      </p>
+      <form method="post" action="https://paws-ishi.myshopify.com/account/recover" accept-charset="UTF-8"><input type="hidden" name="form_type" value="recover_customer_password" />
+        <input type="hidden" name="utf8" value="✓" />
+  <div class="field">
+          <input type="email"
+            value=""
+            name="email"
+            id="RecoverEmail"
+            autocorrect="off"
+            autocapitalize="off"
+            autocomplete="email"
+            
+            placeholder="Email"
+          >
+          <label for="RecoverEmail">
+            Email
+          </label>
+        </div>
+        <button>
+          Submit
+        </button>
+  
+       <p data-action="ishi-panel" aria-controls="#ishi-login-panel" >Cancel</p></form>
+      
+      
+      </div>
+    
+    <div id="ishi-register-panel" class="ishi-panel-data ishi-panel-data-slide">
+      <h2>
+       Create account
+      </h2>
+      
+      <form *ngIf="registerForm" [formGroup]="registerForm"  method="post" action="https://paws-ishi.myshopify.com/account" id="create_customer" accept-charset="UTF-8" novalidate="novalidate">
+        <input type="hidden" name="form_type" value="create_customer" />
+        <input type="hidden" name="utf8" value="✓" />
+        <div class="field">      
+        <input type="text"class="form-control" name="Firstname" value=""  formControlName="Firstname" [ngStyle]="{'border-color':registerForm.get('Firstname')?.errors && registerForm.get('Firstname')?.touched?'red':'#eaeaea'}"  id="RegisterForm-FirstName"  autocomplete="given-name"  placeholder="First name" >
+        <label for="RegisterForm-FirstName">
+          First name
+        </label>
+      </div>
+      <div class="field">
+        <input
+          type="text"
+         
+          id="RegisterForm-LastName"
+          name="Lastname" class="form-control"  formControlName="Lastname" [ngStyle]="{'border-color':registerForm.get('Lastname')?.errors && registerForm.get('Lastname')?.touched?'red':'#eaeaea'}"
+          autocomplete="family-name"
+          placeholder="Last name"
+        >
+        <label for="RegisterForm-LastName">
+          Last name
+        </label>
+      </div>
+      <div class="field">      
+        <input
+          type="email"
+        
+          id="RegisterForm-email"
+          
+          spellcheck="false"
+          autocapitalize="off"
+          autocomplete="email"
+          aria-required="true"
+          name="Email" class="form-control"  formControlName="Email" [ngStyle]="{'border-color':registerForm.get('Email')?.errors && registerForm.get('Email')?.touched?'red':'#eaeaea'}"
+          placeholder="Email"
+        >
+
+        <span  *ngIf="registerForm.get('Email')?.hasError('required') && registerForm.get('Email')?.touched" style="color: red">
+
+          Required
+          </span>
+        <label for="RegisterForm-email">
+          Email
+        </label>
+      </div>
+      <div class="field">     
+        <input
+          type="password"
+         
+          id="RegisterForm-password"
+          aria-required="true"
+          name="Password" class="form-control"  formControlName="Password" [ngStyle]="{'border-color':registerForm.get('Password')?.errors && registerForm.get('Password')?.touched?'red':'#eaeaea'}"
+          placeholder="Password"
+        >
+        <label for="RegisterForm-password">
+          Password
+        </label>
+      </div>
+      <button class="btn" [disabled]="registerForm?.invalid" (click)="submit()">
+        Create
+      </button>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <p data-action="ishi-panel" aria-controls="#ishi-login-panel" class="new-account">Already Have an Account ?</p></form></div></div>
+  </div>
+              </div>
+              
+              
+              
+              <div class="wishlist">
+                <a class="nav-icon" routerLink="/panier">
+                  Wishlist
+                </a>
+              </div>
+              
+  
+  
+              
+            </div>
+        </div>
+      </div>
+      <div class="header-top site-header-inner hidden-lg-down">
+        <div class="page-width">
+          <div class="row">
+           <div id="_desktop_search" class="site-header__search hidden-lg-down col-md-4 col-sm-6 col-xs-6 header-left">
+                <div class="search-title clearfix" data-href="#search-container-full" data-toggle="popover" aria-expanded="false">
+    <span class="search-toggle hidden-lg-down">
+        <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">   
+          <symbol id="magnifying-desktop" viewBox="0 0 1200 1200">
+            <path d="M606.209,578.714L448.198,423.228C489.576,378.272,515,318.817,515,253.393C514.98,113.439,399.704,0,257.493,0
+                 C115.282,0,0.006,113.439,0.006,253.393s115.276,253.393,257.487,253.393c61.445,0,117.801-21.253,162.068-56.586
+                 l158.624,156.099c7.729,7.614,20.277,7.614,28.006,0C613.938,598.686,613.938,586.328,606.209,578.714z M257.493,467.8
+                 c-120.326,0-217.869-95.993-217.869-214.407S137.167,38.986,257.493,38.986c120.327,0,217.869,95.993,217.869,214.407
+                 S377.82,467.8,257.493,467.8z"></path>
+           </symbol>
+        </svg>
+        <svg class="icon" viewBox="0 0 40 40"><use xlink:href="#magnifying-desktop" x="20%" y="22%"></use></svg>
+  
+  
+  
+  </span>
+    <span class="search-toggle hidden-lg-up">
+        <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">   
+          <symbol id="magnifying-mobile" viewBox="0 0 1200 1200">
+            <path d="M606.209,578.714L448.198,423.228C489.576,378.272,515,318.817,515,253.393C514.98,113.439,399.704,0,257.493,0
+                 C115.282,0,0.006,113.439,0.006,253.393s115.276,253.393,257.487,253.393c61.445,0,117.801-21.253,162.068-56.586
+                 l158.624,156.099c7.729,7.614,20.277,7.614,28.006,0C613.938,598.686,613.938,586.328,606.209,578.714z M257.493,467.8
+                 c-120.326,0-217.869-95.993-217.869-214.407S137.167,38.986,257.493,38.986c120.327,0,217.869,95.993,217.869,214.407
+                 S377.82,467.8,257.493,467.8z"></path>
+           </symbol>
+        </svg>
+        <svg class="icon" viewBox="0 0 40 40"><use xlink:href="#magnifying-mobile" x="24%" y="24%"></use></svg>
+  
+  
+  
+  </span>
+  </div>
+  <div  id="search-container-full" class="search-info toggle-dropdown">
+      <form action="https://paws-ishi.myshopify.com/search" method="get" class="search-header search search--focus" role="search">
+         <input type="hidden" name="type" value="product">
+        <input class="search-header__input search__input"
+          name="q"
+          placeholder="Search"
+          aria-label="Search">
+        <button class="search-header__submit search__submit btn--link" type="submit">
+          <i class="fa fa-search" aria-hidden="true"></i>
+          <span class="icon__fallback-text hidden">Search</span>
+        </button>
+      </form>
+    </div>
+              </div>
+            <div id="_desktop_logo" class="header-logo-section col-md-4 col-sm-6 col-xs-6 center">
+              
+              
+              <h1 class="h2 header__logo" itemscope itemtype="http://schema.org/Organization">
+                
+                   <div class="hidden-lg-down">
+                  
+                  <a href="index.html" itemprop="url" class="header__logo-image">
+                      
+                                 
+                    <img 
+                         src="../../../assets/demo-shop-logo-1529056791_jpg_larged72e.png?v=1572844514"
+                         alt="Paws Sectioned Shopify Theme"
+                         itemprop="logo" style="max-width: 100%;width: 94px;">
+                  </a>
+                  
+                  </div>
+                  <div class="hidden-lg-up">
+                     
+                      <a href="index.html" itemprop="url" class="header__logo-image">  
+                          <img class="hidden-lg-up" src="../cdn.shopify.com/s/files/1/0285/6022/8445/files/mobile_logo_large1fb3.png?v=1620823531"
+                               alt="Paws Sectioned Shopify Theme"
+                               itemprop="logo" style="max-width: 100%;"> 
+                      </a>
+                    
+                   </div>
+                  
+                  </h1>
+                
+            </div>
+  
+            <div class="hidden-lg-down header-right col-md-4 col-sm-6 col-xs-6">
+              
+             
+              <div id="_desktop_cart" class="cart_info">
+                
+                <div class="cart-display" id="cart-icon-bubble" data-href="#cart-notification" data-toggle="popover" aria-expanded="false" >
+                  
+                    <span class="cart-logo">
+                      <span class="hidden-lg-down">
+            
+      <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">          
+              <symbol id="shopping-cart-desktop" viewBox="0 0 600 600"><title>shopping-cart-desktop</title>
+                <path d="M342.3,137.978H385l-63.3-108.6c-5.1-8.8-16.4-11.8-25.2-6.6c-8.8,5.1-11.8,16.4-6.6,25.2L342.3,137.978z"></path>
+          <path d="M197.4,47.978c5.1-8.8,2.2-20.1-6.6-25.2s-20.1-2.2-25.2,6.6l-63.3,108.7H145L197.4,47.978z"></path>
+          <path d="M455.7,171.278H31.3c-17.3,0-31.3,14-31.3,31.3v34.7c0,17.3,14,31.3,31.3,31.3h9.8l30.2,163.7
+              c3.8,19.3,21.4,34.6,39.7,34.6h12h78.8c8,0,18.4,0,29,0l0,0h9.6h9.6l0,0c10.6,0,21,0,29,0h78.8h12c18.3,0,35.9-15.3,39.7-34.6
+              l30.4-163.8h15.9c17.3,0,31.3-14,31.3-31.3v-34.7C487,185.278,473,171.278,455.7,171.278z M172.8,334.878v70.6
+              c0,10.1-8.2,17.7-17.7,17.7c-10.1,0-17.7-8.2-17.7-17.7v-29.6v-69.4c0-10.1,8.2-17.7,17.7-17.7c10.1,0,17.7,8.2,17.7,17.7V334.878
+              z M229.6,334.878v70.6c0,10.1-8.2,17.7-17.7,17.7c-10.1,0-17.7-8.2-17.7-17.7v-29.6v-69.4c0-10.1,8.2-17.7,17.7-17.7
+              s17.7,8.2,17.7,17.7V334.878z M286.7,375.878v29.6c0,9.5-7.6,17.7-17.7,17.7c-9.5,0-17.7-7.6-17.7-17.7v-70.6v-28.4
+              c0-9.5,8.2-17.7,17.7-17.7s17.7,7.6,17.7,17.7V375.878z M343.5,375.878v29.6c0,9.5-7.6,17.7-17.7,17.7c-9.5,0-17.7-7.6-17.7-17.7
+              v-70.6v-28.4c0-9.5,7.6-17.7,17.7-17.7c9.5,0,17.7,7.6,17.7,17.7V375.878z"></path>
+              </symbol> 
+          </svg>
+       
+        <a routerLink="/panier">        
+          <svg class="icon" viewBox="0 0 40 40"><use xlink:href="#shopping-cart-desktop" x="10%" y="10%"></use></svg> 
+        </a>  
+  
+  
+  
+                      </span>
+                      <span class="hidden-lg-up">
+                        
+      <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">          
+            <symbol id="shopping-cart-mobile" viewBox="0 0 550 550">
+              <path d="M306.4,313.2l-24-223.6c-0.4-3.6-3.6-6.4-7.2-6.4h-44.4V69.6c0-38.4-31.2-69.6-69.6-69.6c-38.4,0-69.6,31.2-69.6,69.6
+                       v13.6H46c-3.6,0-6.8,2.8-7.2,6.4l-24,223.6c-0.4,2,0.4,4,1.6,5.6c1.2,1.6,3.2,2.4,5.2,2.4h278c2,0,4-0.8,5.2-2.4
+                       C306,317.2,306.8,315.2,306.4,313.2z M223.6,123.6c3.6,0,6.4,2.8,6.4,6.4c0,3.6-2.8,6.4-6.4,6.4c-3.6,0-6.4-2.8-6.4-6.4
+                       C217.2,126.4,220,123.6,223.6,123.6z M106,69.6c0-30.4,24.8-55.2,55.2-55.2c30.4,0,55.2,24.8,55.2,55.2v13.6H106V69.6z
+                       M98.8,123.6c3.6,0,6.4,2.8,6.4,6.4c0,3.6-2.8,6.4-6.4,6.4c-3.6,0-6.4-2.8-6.4-6.4C92.4,126.4,95.2,123.6,98.8,123.6z M30,306.4
+                       L52.4,97.2h39.2v13.2c-8,2.8-13.6,10.4-13.6,19.2c0,11.2,9.2,20.4,20.4,20.4c11.2,0,20.4-9.2,20.4-20.4c0-8.8-5.6-16.4-13.6-19.2
+                       V97.2h110.4v13.2c-8,2.8-13.6,10.4-13.6,19.2c0,11.2,9.2,20.4,20.4,20.4c11.2,0,20.4-9.2,20.4-20.4c0-8.8-5.6-16.4-13.6-19.2V97.2
+                       H270l22.4,209.2H30z"></path>
+  
+            </symbol> 
+      </svg>
+      <svg class="icon" viewBox="0 0 40 40"><use xlink:href="#shopping-cart-mobile" x="20%" y="20%"></use></svg>
+  
+  
+  
+  
+                      </span>
+                    </span>
+                    <span class="cart-price text-content hidden-lg-down">
+                        <span class="total-price hidden-lg-down">
+                              $0.00 -
+                      </span>
+                    <span class="cart_count sub-title">
+                     <span class="hidden-lg-down">0 items</span>
+                      </span>
+                    </span>
+                    </div>
+                  
+  
+  <div>
+    <div class="cart-notification-wrapper">
+      <div id="cart-notification" class="cart-notification focus-inset toggle-dropdown">
+        <div class="slimScrollDiv cart-empty-notification">
+        <div id="cart-notification-default"><div class="cart-notification__header cart-empty">
+            <h2 class="cart-notification__heading caption-large">Your Cart is currently empty!</h2>
+          </div></div>
+        </div>
+        <div id="cart-notification-product"></div>
+        <div id="cart-notification-button"></div>
+      </div>
+    </div>
+  </div>
+  
+  </div>
+            </div>
+          </div>
+        </div> 
+      </div>
+      <div id="mobile_top_menu_wrapper" class="hidden-lg-up" style="display:none;">
+        <div id="top_menu_closer" class="hidden-lg-up">
+          
+      <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">          
+        <symbol id="close" viewBox="0 0 16 17">
+          <path d="M.865 15.978a.5.5 0 00.707.707l7.433-7.431 7.579 7.282a.501.501 0 00.846-.37.5.5 0 00-.153-.351L9.712 8.546l7.417-7.416a.5.5 0 10-.707-.708L8.991 7.853 1.413.573a.5.5 0 10-.693.72l7.563 7.268-7.418 7.417z" fill="currentColor"></path>
+        </symbol> 
+      </svg>
+      <svg class="icon" viewBox="0 0 50 50"><use xlink:href="#close" x="0%" y="0%"></use></svg>
+  
+  
+  
+  
+        </div>
+        <div  id="_mobile_top_menu" class="js-top-menu mobile"></div>
+      </div>
+      <div class="mobile-menu-overlay hidden-lg-up"></div>
+      <div class="mobile-navmenu hidden-lg-up">
+        <div class="mobile-width">
+          <div class="page-width">
+            <div class="row">
+              <div class="mobile-width-left">
+                <div id="menu-icon" class="menu-icon hidden-lg-up">
+                  
+      <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">   
+              <symbol id="setup" viewBox="0 0 750 750"><g> <rect y="46.06" width="344.339" height="29.52"/> </g><g> <rect y="156.506" width="344.339" height="29.52"/> </g><g> <rect y="268.748" width="344.339" height="29.531"/> </g></symbol>
+          </svg>
+          <svg class="icon" viewBox="0 0 40 40"><use xlink:href="#setup" x="25%" y="27%"></use></svg>
+  
+  
+  
+  
+  
+                </div>
+                <div id= "_mobile_search"></div>
+              </div>
+              <div id="_mobile_logo" class="header-logo-section"></div>
+              <div class="mobile-width-right">
+               <div id= "_mobile_user_info"></div>
+                <div id= "_mobile_cart" class="cart_info"></div> 
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+  </div>
+  </div>
+
+
+  
