@@ -15,6 +15,7 @@ var multer =require('multer');
 dotenv.config();
 var app = express();
 app.use(cors());
+app.use(bodyParser());
 mongoose.connect(config.mongo.uri,
     {useNewUrlParser:true,useUnifiedTopology:true,useFindAndModify: false},
     ()=>console.log("connected todatabase"));
