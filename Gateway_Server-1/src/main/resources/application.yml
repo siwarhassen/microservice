@@ -1,0 +1,12 @@
+server:
+  port: 8087
+
+spring:
+  cloud:
+    gateway:
+      routes:
+      - id: annonceMS
+        uri: http://localhost:8085/
+        predicates:
+        - Path=/annonce/**
+        

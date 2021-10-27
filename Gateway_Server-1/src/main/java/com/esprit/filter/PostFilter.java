@@ -22,20 +22,12 @@ public class PostFilter extends ZuulFilter {
 		return true;
 	}
 
-	/*@Override
-	public Object run() {
-		System.out.println("Using Post Filter");
-		return null;
-	}*/
-
-	
 	@Override
 	public Object run() {
 		System.out.println("Using Post Filter");
 		
 		RequestContext context = RequestContext.getCurrentContext();
 		HttpServletResponse servletResponse = context.getResponse();
-		
 		servletResponse.addHeader("X-Sample", UUID.randomUUID().toString());
 		return null;
 	}
