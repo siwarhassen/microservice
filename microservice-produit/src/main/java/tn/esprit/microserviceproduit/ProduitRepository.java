@@ -11,8 +11,8 @@ import org.springframework.data.repository.query.Param;
 
 public interface ProduitRepository extends JpaRepository<Produit, Integer>{
 
-	@Query("select c from Produit c where c.title like :title")
-	public List<Produit> ProduitByTitle(@Param("title") String n);
+	@Query("select p from Produit p where p.ID=:ID")
+	public List<Produit> ProduitByTitle(@Param("ID") Int ID);
 }
 
 
