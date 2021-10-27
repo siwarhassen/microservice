@@ -14,7 +14,7 @@ public class Produit {
 	
 @Id
 	@GeneratedValue
-	private Long id;
+	private Integer id;
 	
 
 	@Temporal(TemporalType.DATE)
@@ -41,14 +41,6 @@ public class Produit {
 	private int  quantity;
 	
 	
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
 
 	public Date getCreated_at() {
 		return created_at;
@@ -104,7 +96,7 @@ public class Produit {
 				+ ", description=" + description + ", price=" + price + ", quantity=" + quantity + "]";
 	}
 
-	public Produit(Long id, Date created_at, String title, String type, String description, Double price,
+	public Produit(Integer id, Date created_at, String title, String type, String description, Double price,
 			int quantity) {
 		super();
 		this.id = id;
@@ -117,7 +109,7 @@ public class Produit {
 	}
 	
 
-	public Produit(Long id, Date created_at, String title, String description, Double price, int quantity) {
+	public Produit(Integer id, Date created_at, String title, String description, Double price, int quantity) {
 		super();
 		this.id = id;
 		this.created_at = created_at;
@@ -129,7 +121,7 @@ public class Produit {
 	
 
 
-	public Produit(Long id, Date created_at, String title, String type, String description, int quantity) {
+	public Produit(Integer id, Date created_at, String title, String type, String description, int quantity) {
 		super();
 		this.id = id;
 		this.created_at = created_at;
@@ -140,7 +132,7 @@ public class Produit {
 	}
 
 	
-	public Produit(Long id, Date created_at, String title, String type, String description, Double price , String image) {
+	public Produit(Integer id, Date created_at, String title, String type, String description, Double price , String image) {
 		super();
 		this.id = id;
 		this.created_at = created_at;
@@ -158,6 +150,14 @@ public class Produit {
 	public Produit() {
 		super();
 		
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 

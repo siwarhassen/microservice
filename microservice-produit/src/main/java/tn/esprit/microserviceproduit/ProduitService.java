@@ -19,7 +19,7 @@ public class ProduitService {
 		return produit;
 	}
 	
-	public String deleteProduit(int id) {
+	public String deleteProduit(Integer id) {
 		if (repository.findById(id).isPresent()) {
 			repository.deleteById(id);
 			return "done";
@@ -37,12 +37,12 @@ public class ProduitService {
 		return (List<Produit>) repository.ProduitByTitle(title);
 	}
 	
-	public Produit getProduit(int id){
+	public Produit getProduit(Integer id){
 		return repository.findById(id).get();
 	}
 	
 	
-	public Produit updateProduit(int id, Produit updatedproduit) {
+	public Produit updateProduit(Integer id, Produit updatedproduit) {
 		if (repository.findById(id).isPresent()) {
 			Produit produit = repository.findById(id).get();
 			produit.setTitle(updatedproduit.getTitle());
