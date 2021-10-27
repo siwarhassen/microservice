@@ -1,6 +1,0 @@
-{
-	"mongo":{
-		"uri":"mongodb+srv://jam:jam@cluster0.ucirr.mongodb.net/micro?retryWrites=true&w=majority"
-	}
-}
- 
