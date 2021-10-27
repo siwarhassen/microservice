@@ -1,0 +1,5 @@
+tn\esprit\microserviceproduit\MicroserviceProduitApplication.class
+tn\esprit\microserviceproduit\ProduitService.class
+tn\esprit\microserviceproduit\ProduitRestAPI.class
+tn\esprit\microserviceproduit\Produit.class
+tn\esprit\microserviceproduit\ProduitRepository.class
