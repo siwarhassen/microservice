@@ -23,7 +23,7 @@ public class Produit {
 
 	private String title,type,description,image;
 	
-	@Transient
+	
 	private Double price ; 
 	
 	public String getImage() {
