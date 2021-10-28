@@ -18,7 +18,7 @@ public List<Annonce> annonces_list(){
 //Supprimé annonce
 public String deleteAnnonce(int id,String user_Id) {
 	Optional<Annonce> singleAnnonce= this.annonceRepository.findById(id);
-    if(this.annonceRepository.findById(id).isPresent() && singleAnnonce.get().getUser_Id()==user_Id) {
+    if(this.annonceRepository.findById(id).isPresent() && singleAnnonce.get().getUser_Id().equals(user_Id)) {
     	this.annonceRepository.deleteById(id);
     	return "Annonce supprimé avec Succés";
     }
@@ -33,7 +33,7 @@ public String deleteAnnonce(int id,String user_Id) {
  //Modifier Annonce
  public String updateAnnonce(int id ,String user_Id,Annonce annonce) {
    Optional<Annonce> annonceData=this.annonceRepository.findById(id);
-    if(annonceData.isPresent() && annonceData.get().getUser_Id()==user_Id) {
+    if(annonceData.isPresent() && annonceData.get().getUser_Id().equals(user_Id)) {
     	Annonce existingAnnonce=annonceData.get();
     	if(annonce.getContent()!=null) {
     	existingAnnonce.setContent(annonce.getContent());

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="Comment/.mvn/wrapper"/>
+	<classpathentry kind="src" path="Comment/src/main/java"/>
+	<classpathentry kind="src" path="Comment/src/test/java"/>
+	<classpathentry kind="src" path="config-server/.mvn/wrapper"/>
+	<classpathentry kind="src" path="config-server/src/main/java"/>
+	<classpathentry kind="src" path="config-server/src/test/java"/>
+	<classpathentry kind="src" path="Conseil/.mvn/wrapper"/>
+	<classpathentry kind="src" path="Conseil/src/main/java"/>
+	<classpathentry kind="src" path="Conseil/src/test/java"/>
+	<classpathentry kind="src" path="Discovery-server/.mvn/wrapper"/>
+	<classpathentry kind="src" path="Discovery-server/src/main/java"/>
+	<classpathentry kind="src" path="Discovery-server/src/test/java"/>
+	<classpathentry kind="src" path="Gateway_Server-1/.mvn/wrapper"/>
+	<classpathentry kind="src" path="Gateway_Server-1/src/main/java"/>
+	<classpathentry kind="src" path="Gateway_Server-1/src/test/java"/>
+	<classpathentry kind="src" path="Microservice_Annonce/.mvn/wrapper"/>
+	<classpathentry kind="src" path="Microservice_Annonce/java"/>
+	<classpathentry kind="src" path="Microservice_Annonce/src/main/java"/>
+	<classpathentry kind="src" path="Microservice_Annonce/src/test/java"/>
+	<classpathentry kind="src" path="MicroService-Panier/.mvn/wrapper"/>
+	<classpathentry kind="src" path="MicroService-Panier/src/main/java"/>
+	<classpathentry kind="src" path="MicroService-Panier/src/test/java"/>
+	<classpathentry kind="src" path="microservice-produit/.mvn/wrapper"/>
+	<classpathentry kind="src" path="microservice-produit/src/main/java"/>
+	<classpathentry kind="src" path="microservice-produit/src/test/java"/>
+	<classpathentry kind="lib" path="microservice-produit/bin/.mvn/wrapper/maven-wrapper.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path="Discovery-server/target/classes"/>
+</classpath>

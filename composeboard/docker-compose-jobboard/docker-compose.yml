@@ -1,0 +1,105 @@
+version: "3.9"
+services:
+  discovery:
+    build:  ../../Discovery-server
+    ports:
+      - "8761:8761"
+    image: "discovery-service"
+  produit_B:
+    build:  ../../microservice-produit
+    environment: 
+      - eureka.client.serviceUrl.defaultZone=http://discovery:8761/eureka/
+    ports:
+      - "3002:8080"
+    image: "produit-service"
+
+  panier_C:
+    build:  ../../MicroService-Panier
+    environment: 
+      - eureka.client.serviceUrl.defaultZone=http://discovery:8761/eureka/
+      - spring.cloud.config.uri=http://config:8888
+    ports:
+      - "3003:8002"
+    image: "panier-service"
+  config:
+    build: ../../config-server
+    command: --spring.profiles.active=native --spring.cloud.config.server.native.searchLocations=/config
+    volumes:
+      - type: bind
+        source: ./src/main/resources/centralRepo
+        target: /config
+    environment: 
+      - eureka.client.serviceUrl.defaultZone=http://discovery:8761/eureka/
+      - spring.profiles.active=native
+    ports:
+      - "8888:8888"
+    image: "config-server"
+  conseil_C:
+    build: ../../Conseil
+    environment:
+      - eureka.client.serviceUrl.defaultZone=http://discovery:8761/eureka/
+    ports:
+      - "3004:9090"
+    image: "conseil-service"
+  db:
+    image: mysql:5.7
+    container_name: db
+    environment:
+      MYSQL_ROOT_PASSWORD: sab
+      MYSQL_DATABASE: comment-microservice
+      MYSQL_USER: sa
+      MYSQL_PASSWORD: sab
+    ports:
+      - "3306:3306"
+    volumes:
+      - dbdata:/var/lib/mysql
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: pma
+    links:
+      - db
+    environment:
+      PMA_HOST: db
+      PMA_PORT: 3306
+      PMA_ARBITRARY: 1
+    restart: always
+    ports:
+      - 8081:80
+  comment:
+    build: ../../Comment
+    environment:
+      PMA_HOST: mysql-server
+      PMA_USER: root
+      PMA_PASSWORD: secret
+      eureka.client.serviceUrl.defaultZone: http://discovery:8761/eureka/
+    ports:
+      - "3005:9091"
+    image: "comment-service"
+    depends_on:
+      - db
+      - phpmyadmin
+  annonce-microService:
+    build: ../../Microservice_Annonce
+    environment:
+      - eureka.client.serviceUrl.defaultZone=http://discovery:8761/eureka/
+    ports:
+      - "3006:8085"
+    image: "annonce-microservice"
+  user-microService:
+    build: ../../MicroService_user
+    environment:
+      - eureka.client.serviceUrl.defaultZone=http://discovery:8761/eureka/
+    ports:
+      - "3007:3004"
+    image: "user-microservice"
+  gatewayserver-microService:
+    build: ../../Gateway_Server-1
+    environment:
+      - eureka.client.serviceUrl.defaultZone=http://discovery:8761/eureka/
+      - logging.level.com.netflix.eureka=OFF
+      - logging.level.com.netflix.discovery=OFF
+    ports:
+      - "8762:8762"
+    image: "gatewayserver-microservice"
+volumes:
+  dbdata:
